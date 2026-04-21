@@ -1,0 +1,124 @@
+:root {
+  color-scheme: dark;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  background: #0b1220;
+  color: #d7dbf2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(circle at top, rgba(66, 133, 244, 0.18), transparent 25%),
+              radial-gradient(circle at bottom right, rgba(52, 211, 153, 0.16), transparent 18%),
+              #0b1220;
+}
+
+.terminal {
+  width: min(100%, 900px);
+  max-width: 900px;
+  background: rgba(10, 16, 28, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #8aa2ff;
+  letter-spacing: 1px;
+}
+
+.terminal-light {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.terminal-header div {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.output {
+  min-height: 420px;
+  max-height: 62vh;
+  overflow-y: auto;
+  padding: 18px 22px;
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+.line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.line.command {
+  color: #8fd2ff;
+}
+
+.line.success {
+  color: #7fdc97;
+}
+
+.line.error {
+  color: #f36d6d;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 22px 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(14, 19, 32, 0.95);
+}
+
+.prompt {
+  color: #7c92ff;
+  font-size: 0.95rem;
+}
+
+#input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f0f3ff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  outline: none;
+}
+
+#input::placeholder {
+  color: rgba(247, 248, 255, 0.42);
+}
+
+#input:focus {
+  border-color: rgba(127, 197, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.14);
+}
+
+@media (max-width: 640px) {
+  .terminal {
+    border-radius: 16px;
+  }
+  .output {
+    min-height: 340px;
+  }
+}
