@@ -1,4 +1,4 @@
-﻿const output = document.getElementById("output");
+const output = document.getElementById("output");
 const input = document.getElementById("input");
 
 let currentUser = null;
@@ -151,6 +151,7 @@ function showHelp() {
   writeLine("help — показати список команд");
   writeLine("status — поточний рівень і прогрес");
   writeLine("tasks — показати всі завдання");
+  writeLine("hint — отримати підказку для поточного завдання");
   writeLine("code <ключ> — ввести знайдений код");
   writeLine("reset — почати заново для поточного користувача");
 }
@@ -304,6 +305,18 @@ function handleCommand(raw) {
         writeLine("Невірний код. Спробуйте ще раз.", "error");
         writeLine(`Підказка: ${task.hint}`);
       }
+      break;
+    case "hint":
+      if (!currentUser) {
+        writeLine("Спочатку увійдіть: login <ім'я>");
+        break;
+      }
+      if (progress.currentTask >= tasks.length) {
+        writeLine("Ви вже завершили всі завдання.");
+        break;
+      }
+      const hintTask = tasks[progress.currentTask];
+      writeLine(`Підказка: ${hintTask.hint}`, "hint");
       break;
     case "reset":
       resetQuest();
