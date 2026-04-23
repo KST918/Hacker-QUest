@@ -347,7 +347,22 @@ async function loadTasks() {
   }
 }
 
+function clearAllData() {
+  // Видалити всі дані з localStorage
+  const keys = Object.keys(localStorage);
+  keys.forEach(key => {
+    if (key.includes("hackQuest")) {
+      localStorage.removeItem(key);
+    }
+  });
+  currentUser = null;
+  tasks = [];
+  progress = { currentTask: 0, level: 0 };
+  updatePrompt();
+}
+
 (async function() {
+  clearAllData(); // Очистити всі тестові дані при завантаженні
   await loadTasks();
   loadCurrentUser();
   if (currentUser) {
