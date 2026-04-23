@@ -81,6 +81,10 @@ body {
   color: #f36d6d;
 }
 
+.line.hint {
+  color: #ffc843;
+}
+
 .input-row {
   display: flex;
   align-items: center;
